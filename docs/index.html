@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#203f2c">
+  <meta name="description" content="Make Sol Food-inspired pique sauce, scale the recipe, and remember what made your last batch good. Actual sauce. Excessive project management.">
+  <title>PiqueOps — actual sauce, excessive project management</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./cook.css">
+  <script src="./cook.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to recipe</a>
+  <header class="site-header">
+    <a class="brand" href="#recipe"><img src="./favicon.svg" width="35" height="35" alt=""><span>PiqueOps<span class="brand-period">.</span></span></a>
+    <span class="brand-note">ACTUAL SAUCE.<br>EXCESSIVE PROJECT MANAGEMENT.</span>
+    <a class="jake-link" href="https://jakeheller.fyi" target="_blank" rel="noreferrer">A kitchen project by Jake ↗</a>
+  </header>
+  <nav class="main-nav" aria-label="Kitchen tools">
+    <a href="#recipe" data-nav="recipe"><span>01</span> The recipe</a>
+    <a href="#shopping" data-nav="shopping"><span>02</span> Shopping list</a>
+    <a href="#batches" data-nav="batches"><span>03</span> Batch notebook <b id="batch-count">0</b></a>
+    <span class="nav-aside">No account. No life story before the recipe.</span>
+  </nav>
+  <main id="main" tabindex="-1">
+    <section data-page="recipe">
+      <div class="recipe-hero">
+        <div class="hero-copy"><p class="eyebrow">SOL FOOD–INSPIRED PIQUE SAUCE</p><h1>Ship sauce.<br>Keep notes.</h1><p class="hero-description">For meat, rice, and beans. A very good hot sauce deserves better documentation than “I think I put something orange in it.”</p><div class="hero-facts"><span>Vinegar-based</span><span>Fridge recipe</span><span>Meat &amp; beans approved</span></div><p class="source-credit">The recipe: <a href="https://www.husbandsthatcook.com/2016/08/pique-sauce/" target="_blank" rel="noreferrer">Husbands That Cook ↗</a>, adapted from Scot Lang. Inspired by Sol Food; not the restaurant’s official recipe.</p></div>
+        <figure class="hero-photo"><img src="./assets/jakes-batch.webp" alt="Jake’s bottles and jars of orange-red pique sauce on his kitchen counter" width="700" height="800"><span class="photo-label">PRODUCTION ENVIRONMENT</span><figcaption>Jake’s actual batch. Enterprise-grade mismatched bottles.</figcaption></figure>
+      </div>
+      <div class="batch-controls"><div><label>Batch size</label><div class="segmented" role="group" aria-label="Recipe batch size"><button data-scale="0.5">½×</button><button data-scale="1" aria-pressed="true">1×</button><button data-scale="2">2×</button><button data-scale="3">3×</button></div></div><div><label for="measure-units">Measures</label><select id="measure-units"><option value="us">US measures</option><option value="metric">mL for liquids</option></select></div><p id="scale-caption">One batch. A reasonable amount of ambition.</p><button class="button secondary" data-action="print">Print recipe ↗</button></div>
+      <div class="recipe-grid">
+        <aside class="ingredients-card"><div class="card-heading"><div><span class="eyebrow">THE BILL OF MATERIALS</span><h2>Ingredients</h2></div><span class="scale-pill" id="ingredient-scale">1×</span></div><p class="small-note">Check what you have. Quantities update with batch size.</p><ul class="ingredient-list" id="recipe-ingredients"></ul><p class="measure-note" id="measure-note">Use water to cover the vegetables; reserve the measured amount for blending.</p><a class="inline-link" href="#shopping">Take this to the grocery store →</a></aside>
+        <div class="method-column"><div class="method-heading"><div><span class="eyebrow">THE RELEASE PLAN</span><h2>Four steps. Zero stand-ups.</h2></div><span id="step-count">0 / 4 complete</span></div><div id="recipe-steps"></div>
+          <div class="keep-cold"><span aria-hidden="true">❄</span><p><strong>The fridge is part of the recipe.</strong> Keep the soak and finished sauce refrigerated. This is not a shelf-stable canning formula. For that, use a <a href="https://nchfp.uga.edu/how/can/how-do-i-can-tomatoes/easy-hot-sauce/" target="_blank" rel="noreferrer">tested canning recipe</a>.</p></div>
+          <div class="batch-prompt"><div><h3>Write it down while you still remember.</h3><p>Pepper swaps, soak time, salt changes, verdict. Your future self was not in the room.</p></div><button class="button" data-action="new-batch">Log this batch →</button></div>
+        </div>
+      </div>
+      <div class="why-this"><span class="eyebrow">SMALL TOOL. ACTUAL DINNER.</span><p>Jake started with this recipe and began changing chiles and vinegar-soak times. This is a place to keep the useful part: what went in, what changed, and whether you’d make it again.</p><a href="https://jakeheller.fyi/blog/pique-sauce" target="_blank" rel="noreferrer">Jake’s kitchen note ↗</a></div>
+    </section>
+    <section data-page="shopping" hidden><div class="page-heading"><div><p class="eyebrow">PROCUREMENT DEPARTMENT</p><h1>It’s a grocery list.</h1><p>We almost made you submit a purchase order.</p></div><div class="actions"><button class="button secondary" data-action="copy-list">Copy list</button><button class="button" data-action="download-list">Download .txt ↧</button></div></div><div class="shopping-layout"><div class="shopping-card"><div class="card-heading"><h2>Your ingredients</h2><span id="shopping-scale" class="scale-pill">1× batch</span></div><ul class="ingredient-list shopping-ingredients" id="shopping-ingredients"></ul><div class="shopping-bottom"><span id="shopping-progress"></span><button class="text-button" data-action="clear-checks">Uncheck all</button></div></div><aside class="shopping-aside"><h2>Before you leave</h2><p>Already have it? Check it off. The same checklist appears beside the recipe.</p><p>Want more or less sauce? <a href="#recipe">Change the batch size</a>. That resets the checklist so the new quantities get another look.</p><p>Serranos are counted per bottle. Finished yield varies, so we’re not inventing a bottle count.</p><div class="aside-joke">SUPPLY CHAIN STATUS<br><strong>Probably aisle four.</strong></div></aside></div></section>
+    <section data-page="batches" hidden><div class="page-heading"><div><p class="eyebrow">VERSION CONTROL FOR VINEGAR</p><h1>Remember the good one.</h1><p>Actual batches, actual tasting notes. No fictional Scoville readings.</p></div><button class="button" data-action="new-batch">+ Log a batch</button></div><div class="notebook-toolbar"><p id="notebook-status">Stored only in this browser. Export a backup to keep your notes.</p><div><button class="text-button" data-action="export-notebook">Export backup ↧</button><label class="text-button import-button">Import backup<input id="import-notebook" type="file" accept="application/json,.json"></label></div></div><div id="comparison" class="comparison" hidden></div><div id="batch-list" class="batch-list"></div></section>
+    <footer class="site-footer"><div><strong>PiqueOps.</strong><span>Useful kitchen software with a mild management problem.</span></div><div><a href="./lab/">The deeply unnecessary control room ↗</a><a href="https://github.com/jhellrzr" target="_blank" rel="noreferrer">Jake on GitHub ↗</a></div></footer>
+  </main>
+  <dialog id="batch-dialog" aria-labelledby="batch-dialog-title"><div class="dialog-heading"><span class="eyebrow">A REAL BATCH. A SMALL PAPER TRAIL.</span><button class="close" data-close aria-label="Close batch form">×</button></div><h2 id="batch-dialog-title">Commit your condiment.</h2><form id="batch-form"><div class="form-grid"><label class="wide">Batch name<input name="name" maxlength="80" placeholder="The one I will definitely label"></label><label>Made on<input type="date" name="madeOn" required></label><label>Recipe scale<select name="scale"><option value="0.5">½× batch</option><option value="1">1× batch</option><option value="2">2× batch</option><option value="3">3× batch</option></select></label><label>Actual soak time (hours)<input name="soakHours" type="number" min="0" max="168" step="0.5" required><small>Record what happened; recipe baseline is 12–48h.</small></label><label>Pepper mix / substitutions<input name="peppers" maxlength="240" placeholder="e.g. Árbol; swapped 5 for guajillo"></label><label>Heat, according to your mouth<select name="heat"><option value="0">Not tasted yet</option><option value="1">1 · A polite suggestion</option><option value="2">2 · Noticeably awake</option><option value="3">3 · Exactly my problem</option><option value="4">4 · Pause the conversation</option><option value="5">5 · I have learned something</option></select></label><label>Tang, also subjective<select name="tang"><option value="0">Not tasted yet</option><option value="1">1 · Barely there</option><option value="2">2 · Gentle</option><option value="3">3 · Balanced</option><option value="4">4 · Vinegar has entered the chat</option><option value="5">5 · Technically a pickle meeting</option></select></label><label class="wide">What changed? What would you repeat?<textarea name="notes" rows="4" maxlength="2000" placeholder="Less salt? Different pepper? Great on beans? Future you needs specifics."></textarea></label></div><p class="form-error" id="batch-error" role="alert"></p><div class="form-footer"><span>Saved on this device. Nobody is grading your sauce.</span><button class="button" type="submit">Save batch →</button></div></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">This tool needs JavaScript for scaling and notes. <a href="https://www.husbandsthatcook.com/2016/08/pique-sauce/">Read the original recipe here.</a></p></noscript>
+</body>
+</html>

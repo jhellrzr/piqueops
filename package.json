@@ -1,0 +1,24 @@
+{
+  "name": "piqueops",
+  "version": "0.2.0",
+  "private": true,
+  "description": "A real pique sauce recipe, batch notebook, and unnecessary condiment operations department.",
+  "type": "module",
+  "bin": {
+    "piqueops": "./bin/piqueops.js"
+  },
+  "scripts": {
+    "start": "node bin/piqueops.js",
+    "demo": "node scripts/serve.js",
+    "test": "node --test",
+    "check": "node --check docs/cook.js && node --check docs/recipe.js && node --check docs/app.js && node --check docs/kitchen.js && node --check bin/piqueops.js && node --check scripts/serve.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "bin/piqueops.js",
+    "docs",
+    "README.md"
+  ]
+}
